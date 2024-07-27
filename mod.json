@@ -1,0 +1,8 @@
+{
+    "name": "Modern Mod",
+    "author": "keymasterer, don_nikon, quicklast",
+    "version": "1.3.1",
+    "description": "This mod adds new modern levels for buildings!\nNow, buildings have 10 levels of upgrades instead of 5 by default.\nAlso this mod adding upgrade and downgrade building god power!",
+    "iconPath": "icon.png",
+    "targetGameBuild": 558
+}
