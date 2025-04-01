@@ -32,14 +32,14 @@ namespace ModernMod.Code {
 
     private static void CreateGodPowers() {
       GodPower upgradeBuildingPower = AssetManager.powers.clone("upgradeBuilding", "_drops");
-      upgradeBuildingPower.holdAction = true;
-      upgradeBuildingPower.showToolSizes = true;
-      upgradeBuildingPower.unselectWhenWindow = true;
+      upgradeBuildingPower.hold_action = true;
+      upgradeBuildingPower.show_tool_sizes = true;
+      upgradeBuildingPower.unselect_when_window = true;
       upgradeBuildingPower.name = "Upgrade Building";
-      upgradeBuildingPower.dropID = "upgradeBuilding";
-      upgradeBuildingPower.fallingChance = 0.01f;
+      upgradeBuildingPower.drop_id = "upgradeBuilding";
+      upgradeBuildingPower.falling_chance = 0.01f;
       upgradeBuildingPower.click_power_action = (pTile, pPower) =>  AssetManager.powers.spawnDrops(pTile, pPower);
-      upgradeBuildingPower.click_power_brush_action = (pTile, pPower) => AssetManager.powers.loopWithCurrentBrushPower(pTile, pPower);
+      upgradeBuildingPower.click_power_brush_action = (pTile, pPower) => AssetManager.powers.loopWithCurrentBrushPowerForDropsFull(pTile, pPower);
 
 
       DropAsset upgradeBuildingDrop = new DropAsset {
@@ -54,14 +54,14 @@ namespace ModernMod.Code {
 
 
       GodPower downgradeBuildingPower = AssetManager.powers.clone("downgradeBuilding", "_drops");
-      downgradeBuildingPower.holdAction = true;
-      downgradeBuildingPower.showToolSizes = true;
-      downgradeBuildingPower.unselectWhenWindow = true;
+      downgradeBuildingPower.hold_action = true;
+      downgradeBuildingPower.show_tool_sizes = true;
+      downgradeBuildingPower.unselect_when_window = true;
       downgradeBuildingPower.name = "Downgrade Building";
-      downgradeBuildingPower.dropID = "downgradeBuilding";
-      downgradeBuildingPower.fallingChance = 0.01f;
+      downgradeBuildingPower.drop_id = "downgradeBuilding";
+      downgradeBuildingPower.falling_chance = 0.01f;
       downgradeBuildingPower.click_power_action = (pTile, pPower) =>  AssetManager.powers.spawnDrops(pTile, pPower);
-      downgradeBuildingPower.click_power_brush_action = (pTile, pPower) => AssetManager.powers.loopWithCurrentBrushPower(pTile, pPower);
+      downgradeBuildingPower.click_power_brush_action = (pTile, pPower) => AssetManager.powers.loopWithCurrentBrushPowerForDropsFull(pTile, pPower);
 
 
       DropAsset downgradeBuildingDrop = new DropAsset {
