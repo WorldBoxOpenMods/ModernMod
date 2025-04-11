@@ -38,7 +38,7 @@ namespace ModernMod.Code {
       upgradeBuildingPower.name = "Upgrade Building";
       upgradeBuildingPower.drop_id = "upgradeBuilding";
       upgradeBuildingPower.falling_chance = 0.01f;
-      upgradeBuildingPower.click_power_action = (pTile, pPower) =>  AssetManager.powers.spawnDrops(pTile, pPower);
+      upgradeBuildingPower.click_power_action = (pTile, pPower) => AssetManager.powers.spawnDrops(pTile, pPower);
       upgradeBuildingPower.click_power_brush_action = (pTile, pPower) => AssetManager.powers.loopWithCurrentBrushPowerForDropsFull(pTile, pPower);
 
 
@@ -60,7 +60,7 @@ namespace ModernMod.Code {
       downgradeBuildingPower.name = "Downgrade Building";
       downgradeBuildingPower.drop_id = "downgradeBuilding";
       downgradeBuildingPower.falling_chance = 0.01f;
-      downgradeBuildingPower.click_power_action = (pTile, pPower) =>  AssetManager.powers.spawnDrops(pTile, pPower);
+      downgradeBuildingPower.click_power_action = (pTile, pPower) => AssetManager.powers.spawnDrops(pTile, pPower);
       downgradeBuildingPower.click_power_brush_action = (pTile, pPower) => AssetManager.powers.loopWithCurrentBrushPowerForDropsFull(pTile, pPower);
 
 
@@ -88,7 +88,7 @@ namespace ModernMod.Code {
         pTile.building.fillTiles();
       } else if (pTile != null && pTile.building != null) Debug.LogWarning("Failed to upgrade building " + pTile.building.asset.id + " because it has no upgradeTo value.");
     }
-    
+
     private static void DowngradeBuilding(WorldTile pTile = null, string pDropID = null) {
       if (pTile?.building != null) {
         BuildingAsset pTemplate = AssetManager.buildings.list.FirstOrDefault(asset => asset.upgradeTo == pTile.building.asset.id);

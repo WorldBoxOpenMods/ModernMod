@@ -2,7 +2,7 @@
   public static class Buildings {
     public static void Init() {
       SetBaseGameBuildingUpgrades();
-      
+
       CreateHouseUpgrades();
 
       CreateHallUpgrades();
@@ -16,7 +16,7 @@
       CreateCommonUpgrades();
     }
     private static void CreateBuildingForEveryCivRace(string id, string baseBuilding, bool shadow, ConstructionCost cost, BuildingFundament fundament, int housing, bool canBeUpgraded, string upgradeTo, int upgradeLevel, float health) {
-      string[] baseGameCivRaces = { "human", "elf", "orc", "dwarf" };
+      string[] baseGameCivRaces = {"human", "elf", "orc", "dwarf"};
       foreach (string race in baseGameCivRaces) {
         BuildingAsset b = AssetManager.buildings.clone(id + "_" + race + "_modernmod", baseBuilding);
         b.race = race;

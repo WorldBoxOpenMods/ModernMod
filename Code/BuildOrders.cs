@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ModernMod.Code {
   public static class BuildOrders {
-    private static readonly string[] BaseGameRaceIDs = { S.human, S.elf, S.orc, S.dwarf };
+    private static readonly string[] BaseGameRaceIDs = {S.human, S.elf, S.orc, S.dwarf};
 
     internal static void Init() {
       Harmony harmony = new Harmony("com.key.general.harmony_logging");
@@ -114,34 +114,27 @@ namespace ModernMod.Code {
 
       return false;
     }
-    
-    private static bool haveRequiredBuildings_Prefix(BuildOrder pOrder, City pCity)
-    {
+
+    private static bool haveRequiredBuildings_Prefix(BuildOrder pOrder, City pCity) {
       if (pOrder == null) {
         Debug.LogError("Ok sorry what the actual BuildOrder passed to the method is null something is seriously going wrong here ._.");
         throw new NullReferenceException("Ok sorry what the actual BuildOrder passed to the method is null something is seriously going wrong here ._.");
       }
-      if (pOrder.requirements_orders == null || pOrder.requirements_orders.Count == 0)
-      {
+      if (pOrder.requirements_orders == null || pOrder.requirements_orders.Count == 0) {
         return true;
       }
-      foreach (string requirements_order in pOrder.requirements_orders)
-      {
+      foreach (string requirements_order in pOrder.requirements_orders) {
         BuildingAsset buildingAsset = pOrder.getBuildingAsset(pCity, requirements_order);
-        if (buildingAsset == null)
-        {
+        if (buildingAsset == null) {
           Debug.LogError("(!) Building asset not found: " + requirements_order);
           throw new NullReferenceException("Building asset not found: " + requirements_order);
         }
-        if (buildingAsset.id == buildingAsset.upgradeTo)
-        {
+        if (buildingAsset.id == buildingAsset.upgradeTo) {
           Debug.LogError("(!) Building is set to be upgraded to self: " + buildingAsset.id);
           continue;
         }
-        while (pCity.countBuildingExact(buildingAsset.id) == 0)
-        {
-          if (!buildingAsset.canBeUpgraded || string.IsNullOrEmpty(buildingAsset.upgradeTo))
-          {
+        while (pCity.countBuildingExact(buildingAsset.id) == 0) {
+          if (!buildingAsset.canBeUpgraded || string.IsNullOrEmpty(buildingAsset.upgradeTo)) {
             return false;
           }
           buildingAsset = AssetManager.buildings.get(buildingAsset.upgradeTo);
